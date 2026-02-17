@@ -9,17 +9,10 @@ public class Clock {
         state = States.Display_Time;
     }
 
-    public enum States
+    public String changeMode()
     {
-        Change_Time,
-        Display_Time,
-        Display_Date,
-        Change_Date
 
     }
-
-    public String changeMode()
-    {}
 
     public String ready()
     {}
