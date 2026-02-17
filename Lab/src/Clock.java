@@ -2,19 +2,19 @@ public class Clock {
 
     private Time theTime;
     private Date theDate;
+    private States state;
 
 
-    public enum states
+    public Clock(){
+        state = States.Display_Time;
+    }
+
+    public enum States
     {
         Change_Time,
         Display_Time,
         Display_Date,
         Change_Date
-
-    }
-
-    public Clock()
-    {
 
     }
 
