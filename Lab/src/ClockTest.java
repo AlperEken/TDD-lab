@@ -68,5 +68,30 @@ class ClockTest {
 
         assertEquals("1:2:3", clock.set(01, 02, 03));
     }
-    
+
+    @Test
+    void testDateset(){
+        Clock clock = new Clock();
+
+        clock.changeMode();
+        clock.ready();
+
+        assertEquals("1-2-3", clock.set(01, 02, 03));
+    }
+
+    @Test
+    void testTimesetInvalid(){
+        Clock clock = new Clock();
+
+        assertEquals("Invalid state", clock.set(01, 02, 03));
+    }
+
+    @Test
+    void testDatesetInvalid(){
+        Clock clock = new Clock();
+
+        clock.changeMode();
+
+        assertEquals("Invalid state", clock.set(01, 02, 03));
+    }
 }
