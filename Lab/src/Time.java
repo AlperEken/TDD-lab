@@ -4,8 +4,13 @@ public class Time {
     private int theMinute;
     private int theSecond;
 
-    protected String timeSet(int hour, int minute, int second)
-    {
+    public Time() {
+        this.theHour = 0;
+        this.theMinute = 0;
+        this.theSecond = 0;
+    }
+
+    protected String timeSet(int hour, int minute, int second) {
         theHour = hour;
         theMinute = minute;
         theSecond = second;
@@ -13,8 +18,7 @@ public class Time {
         return showTime();
     }
 
-    protected String showTime()
-    {
+    protected String showTime() {
         return theHour + ":" + theMinute + ":" + theSecond;
     }
 }
