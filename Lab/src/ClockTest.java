@@ -12,7 +12,15 @@ class ClockTest {
         Clock clock = new Clock();
 
         assertEquals(States.Change_Time.toString(), clock.ready());
+    }
 
+    @Test
+    void readyTestDateInvalid(){
+        Clock clock = new Clock();
+
+        clock.ready();
+
+        assertEquals("Invalid Mode", clock.ready());
     }
 
     @Test
@@ -20,7 +28,9 @@ class ClockTest {
     {
         Clock clock = new Clock();
 
-        assertEquals(States.Change_Time.toString(), clock.ready());
+        clock.changeMode();
+
+        assertEquals(States.Change_Date.toString(), clock.ready());
 
     }
 
@@ -39,6 +49,15 @@ class ClockTest {
         clock.changeMode();
 
         assertEquals(States.Display_Time.toString(), clock.changeMode());
+    }
+
+    @Test
+    void changeModeInvalid(){
+        Clock clock = new Clock();
+
+        clock.ready();
+
+        assertEquals("Invalid Mode", clock.changeMode());
     }
 
 }

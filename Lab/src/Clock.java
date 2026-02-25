@@ -24,15 +24,21 @@ public class Clock {
 
     public String ready()
     {
-        state = States.Change_Time;
-
-        return state.toString();
+        if (state.equals(States.Display_Time)){
+            state = States.Change_Time;
+            return state.toString();
+        } else if (state.equals(States.Display_Date)){
+            state = States.Change_Date;
+            return state.toString();
+        } else {
+            return "Invalid Mode";
+        }
     }
 
-    //public set(int p1, int p2, int p3)
-    //{}
-
-
+//    public set(int p1, int p2, int p3) //Beroende på vilken man står på, antingen tid eller datum
+//    {
+//
+//    }
 
 }
 
