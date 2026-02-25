@@ -4,9 +4,9 @@ public class Time {
     private int theMinute;
     private int theSecond;
 
-    protected String timeSet(int hour, int minute, int second)
-    {}
-
-    protected String showTime()
-    {}
+//    protected String timeSet(int hour, int minute, int second)
+//    {}
+//
+//    protected String showTime()
+//    {}
 }
