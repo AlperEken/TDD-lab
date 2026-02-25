@@ -20,7 +20,7 @@ class ClockTest {
 
         clock.ready();
 
-        assertEquals("Invalid Mode", clock.ready());
+        assertEquals("Invalid state", clock.ready());
     }
 
     @Test
@@ -57,7 +57,16 @@ class ClockTest {
 
         clock.ready();
 
-        assertEquals("Invalid Mode", clock.changeMode());
+        assertEquals("Invalid state", clock.changeMode());
     }
 
+    @Test
+    void testTimeset(){
+        Clock clock = new Clock();
+
+        clock.ready();
+
+        assertEquals("1:2:3", clock.set(01, 02, 03));
+    }
+    
 }
