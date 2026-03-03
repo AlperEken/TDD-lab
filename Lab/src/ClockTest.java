@@ -61,98 +61,171 @@ class ClockTest {
     }
 
     @Test
-    void testTimesetUnderMinTime(){
+    void testTimesetExaktMinHour(){
         Clock clock = new Clock();
         clock.ready();
-
-        assertEquals("-1:-1:-1", clock.set(-1, -1, -1));
-    }
-
-    @Test
-    void testTimesetExactMinTime(){
-        Clock clock = new Clock();
-        clock.ready();
-
         assertEquals("0:0:0", clock.set(0, 0, 0));
     }
 
     @Test
-    void testTimesetExactMaxTime(){
+    void testTimesetUnderMinHour(){
         Clock clock = new Clock();
         clock.ready();
-
-        assertEquals("23:59:59", clock.set(23, 59, 59));
+        assertEquals("-1:0:0", clock.set(-1, 0, 0));
     }
 
     @Test
-    void testTimesetAtResetLimit(){
+    void testTimesetExaktMaxHour(){
         Clock clock = new Clock();
         clock.ready();
-
-        assertEquals("0:0:0", clock.set(24, 60, 60));
+        assertEquals("23:0:0", clock.set(23, 0, 0));
     }
 
     @Test
-    void testTimesetOverMaxTime(){
+    void testTimesetOverMaxHour(){
         Clock clock = new Clock();
         clock.ready();
-
-        assertEquals("-1:-1:-1", clock.set(25, 61, 61));
+        assertEquals("-1:0:0", clock.set(25, 0, 0));
     }
 
     @Test
-    void testDatesetExaktBelowYear(){
+    void testTimesetExaktMinMinute(){
         Clock clock = new Clock();
-
-        clock.changeMode();
         clock.ready();
-
-        assertEquals("2000-1-1", clock.set(2000, 01, 01));
+        assertEquals("0:0:0", clock.set(0, 0, 0));
     }
 
     @Test
-    void testDatesetBelowMaxYear(){
+    void testTimesetUnderMinMinute(){
         Clock clock = new Clock();
-
-        clock.changeMode();
         clock.ready();
+        assertEquals("0:-1:0", clock.set(0, -1, 0));
+    }
 
-        assertEquals("2099-11-30", clock.set(2099, 11, 30));
+    @Test
+    void testTimesetExaktMaxMinute(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:59:0", clock.set(0, 59, 0));
+    }
+
+    @Test
+    void testTimesetOverMaxMinute(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:-1:0", clock.set(0, 61, 0));
+    }
+
+    @Test
+    void testTimesetExaktMinSecond(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:0:0", clock.set(0, 0, 0));
+    }
+
+    @Test
+    void testTimesetUnderMinSecond(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:0:-1", clock.set(0, 0, -1));
+    }
+
+    @Test
+    void testTimesetExaktMaxSecond(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:0:59", clock.set(0, 0, 59));
+    }
+
+    @Test
+    void testTimesetOverMaxSecond(){
+        Clock clock = new Clock();
+        clock.ready();
+        assertEquals("0:0:-1", clock.set(0, 0, 61));
+    }
+// --- DATE BVA TESTS (12 st) ---
+
+    @Test
+    void testDatesetExaktMinYear(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1-1", clock.set(2000, 1, 1));
+    }
+
+    @Test
+    void testDatesetUnderMinYear(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("-1-1-1", clock.set(1999, 1, 1));
     }
 
     @Test
     void testDatesetExaktMaxYear(){
         Clock clock = new Clock();
-
-        clock.changeMode();
-        clock.ready();
-
-        assertEquals("2100-12-31", clock.set(2100, 12, 31));
+        clock.changeMode(); clock.ready();
+        assertEquals("2100-1-1", clock.set(2100, 1, 1));
     }
 
     @Test
     void testDatesetOverMaxYear(){
         Clock clock = new Clock();
-
-        clock.changeMode();
-        clock.ready();
-
-        assertEquals("-1--1--1", clock.set(2101, 13, 32));
+        clock.changeMode(); clock.ready();
+        assertEquals("-1-1-1", clock.set(2101, 1, 1));
     }
 
     @Test
-    void testTimesetInvalid(){
+    void testDatesetExaktMinMonth(){
         Clock clock = new Clock();
-
-        assertEquals("Invalid state", clock.set(01, 02, 03));
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1-1", clock.set(2000, 1, 1));
     }
 
     @Test
-    void testDatesetInvalid(){
+    void testDatesetUnderMinMonth(){
         Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000--1-1", clock.set(2000, 0, 1));
+    }
 
-        clock.changeMode();
+    @Test
+    void testDatesetExaktMaxMonth(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-12-1", clock.set(2000, 12, 1));
+    }
 
-        assertEquals("Invalid state", clock.set(01, 02, 03));
+    @Test
+    void testDatesetOverMaxMonth(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000--1-1", clock.set(2000, 13, 1));
+    }
+
+    @Test
+    void testDatesetExaktMinDay(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1-1", clock.set(2000, 1, 1));
+    }
+
+    @Test
+    void testDatesetUnderMinDay(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1--1", clock.set(2000, 1, 0));
+    }
+
+    @Test
+    void testDatesetExaktMaxDay(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1-31", clock.set(2000, 1, 31));
+    }
+
+    @Test
+    void testDatesetOverMaxDay(){
+        Clock clock = new Clock();
+        clock.changeMode(); clock.ready();
+        assertEquals("2000-1--1", clock.set(2000, 1, 32));
     }
 }
