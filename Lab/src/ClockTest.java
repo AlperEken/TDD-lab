@@ -228,4 +228,30 @@ class ClockTest {
         clock.changeMode(); clock.ready();
         assertEquals("2000-1--1", clock.set(2000, 1, 32));
     }
+
+    @Test
+    void testTimesetExactly24Hour() {
+        Clock clock = new Clock();
+        clock.ready(); // Gå till Change_Time
+        // Testar grenen: else if (hour == 24) -> theHour = 0
+        assertEquals("0:0:0", clock.set(24, 0, 0));
+    }
+
+    @Test
+    void testTimesetExactly60Minute() {
+        Clock clock = new Clock();
+        clock.ready();
+        // Testar grenen: else if (minute == 60) -> theMinute = 0
+        assertEquals("0:0:0", clock.set(0, 60, 0));
+    }
+
+    @Test
+    void testTimesetExactly60Second() {
+        Clock clock = new Clock();
+        clock.ready();
+        // Testar grenen: else if (second == 60) -> theSecond = 0
+        assertEquals("0:0:0", clock.set(0, 0, 60));
+    }
+
+    
 }
