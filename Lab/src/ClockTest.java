@@ -143,7 +143,6 @@ class ClockTest {
         clock.ready();
         assertEquals("0:0:-1", clock.set(0, 0, 61));
     }
-// --- DATE BVA TESTS (12 st) ---
 
     @Test
     void testDatesetExaktMinYear(){
@@ -232,8 +231,7 @@ class ClockTest {
     @Test
     void testTimesetExactly24Hour() {
         Clock clock = new Clock();
-        clock.ready(); // Gå till Change_Time
-        // Testar grenen: else if (hour == 24) -> theHour = 0
+        clock.ready();
         assertEquals("0:0:0", clock.set(24, 0, 0));
     }
 
@@ -241,7 +239,6 @@ class ClockTest {
     void testTimesetExactly60Minute() {
         Clock clock = new Clock();
         clock.ready();
-        // Testar grenen: else if (minute == 60) -> theMinute = 0
         assertEquals("0:0:0", clock.set(0, 60, 0));
     }
 
@@ -249,9 +246,14 @@ class ClockTest {
     void testTimesetExactly60Second() {
         Clock clock = new Clock();
         clock.ready();
-        // Testar grenen: else if (second == 60) -> theSecond = 0
         assertEquals("0:0:0", clock.set(0, 0, 60));
     }
 
-    
+    @Test
+    void testSetInDisplayDate() {
+        Clock clock = new Clock();
+        clock.changeMode();
+        assertEquals("Invalid state", clock.set(2024, 1, 1));
+    }
+
 }
