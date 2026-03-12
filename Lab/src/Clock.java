@@ -1,3 +1,4 @@
+//By Alper Eken and Samuel Schulze
 public class Clock {
 
     private Time theTime;

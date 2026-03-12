@@ -1,10 +1,9 @@
+//By Alper Eken and Samuel Schulze
 public class Time {
 
     private int theHour = 0;
     private int theMinute = 0;
     private int theSecond = 0;
-
-
 
     protected String timeSet(int hour, int minute, int second) {
         if (hour >= 0 && hour < 24) {

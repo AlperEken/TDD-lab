@@ -1,3 +1,4 @@
+//By Alper Eken and Samuel Schulze
 public class Date {
     private int theYear = 2000;
     private int theMonth = 1;
