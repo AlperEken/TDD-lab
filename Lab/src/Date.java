@@ -9,19 +9,19 @@ public class Date {
         if (year >= 2000 && year <= 2100) {
             theYear = year;
         } else {
-            theYear = -1;
+            return "Invalid year: " + year + ". Must be 2000-2100";
         }
 
         if (month >= 1 && month <= 12) {
             theMonth = month;
         } else {
-            theMonth = -1;
+            return "Invalid month: " + month + ". Must be 1-12";
         }
 
         if (day >= 1 && day <= 31) {
             theDay = day;
         } else {
-            theDay = -1;
+            return "Invalid day: " + day + ". Must be 1-31";
         }
 
         return showDate();
