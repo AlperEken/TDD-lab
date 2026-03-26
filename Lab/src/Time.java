@@ -11,7 +11,7 @@ public class Time {
         } else if (hour == 24) {
             theHour = 0;
         } else {
-            theHour = -1;
+            return "Invalid hour: " + hour + ". Must be 0-23";
         }
 
         if (minute >= 0 && minute < 60) {
@@ -19,7 +19,7 @@ public class Time {
         } else if (minute == 60) {
             theMinute = 0;
         } else {
-            theMinute = -1;
+            return "Invalid minute: " + minute + ". Must be 0-59";
         }
 
         if (second >= 0 && second < 60) {
@@ -27,7 +27,7 @@ public class Time {
         } else if (second == 60) {
             theSecond = 0;
         } else {
-            theSecond = -1;
+            return "Invalid second: " + second + ". Must be 0-59";
         }
 
         return showTime();
