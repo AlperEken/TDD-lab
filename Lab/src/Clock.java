@@ -21,7 +21,7 @@ public class Clock {
                 return state.toString();
             case Change_Time:
             case Change_Date:
-                return "Invalid state";
+                return "Cannot change mode while in setting mode";
             default:
                 return "Error";
         }
@@ -37,7 +37,7 @@ public class Clock {
                 return state.toString();
             case Change_Time:
             case Change_Date:
-                return "Invalid state";
+                return "Already in setting mode";
             default:
                 return "Error";
         }
@@ -55,7 +55,7 @@ public class Clock {
                 return dateResult;
             case Display_Time:
             case Display_Date:
-                return "Invalid state";
+                return "Must be in a setting mode to set values";
             default:
                 return "Error";
         }
