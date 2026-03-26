@@ -42,7 +42,8 @@ class ClockTest {
 
     @Test
     void testS4toS1SetValid() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2025-12-24", clock.set(2025, 12, 24));
     }
 
@@ -54,7 +55,8 @@ class ClockTest {
 
     @Test
     void testS4toS4IllegalReady() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Already in setting mode", clock.ready());
     }
 
@@ -66,7 +68,8 @@ class ClockTest {
 
     @Test
     void testS4IllegalChangeMode() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Cannot change mode while in setting mode", clock.changeMode());
     }
 
@@ -155,73 +158,85 @@ class ClockTest {
 
     @Test
     void testS4YearMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2000-1-1", clock.set(2000, 1, 1));
     }
 
     @Test
     void testS4YearUnderMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid year: 1999. Must be 2000-2100", clock.set(1999, 1, 1));
     }
 
     @Test
     void testS4YearMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2100-1-1", clock.set(2100, 1, 1));
     }
 
     @Test
     void testS4YearOverMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid year: 2101. Must be 2000-2100", clock.set(2101, 1, 1));
     }
 
     @Test
     void testS4MonthMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2000-1-1", clock.set(2000, 1, 1));
     }
 
     @Test
     void testS4MonthUnderMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid month: 0. Must be 1-12", clock.set(2000, 0, 1));
     }
 
     @Test
     void testS4MonthMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2000-12-1", clock.set(2000, 12, 1));
     }
 
     @Test
     void testS4MonthOverMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid month: 13. Must be 1-12", clock.set(2000, 13, 1));
     }
 
     @Test
     void testS4DayMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2000-1-1", clock.set(2000, 1, 1));
     }
 
     @Test
     void testS4DayUnderMinBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid day: 0. Must be 1-31", clock.set(2000, 1, 0));
     }
 
     @Test
     void testS4DayMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("2000-1-31", clock.set(2000, 1, 31));
     }
 
     @Test
     void testS4DayOverMaxBoundary() {
-        clock.changeMode(); clock.ready();
+        clock.changeMode();
+        clock.ready();
         assertEquals("Invalid day: 32. Must be 1-31", clock.set(2000, 1, 32));
     }
 
